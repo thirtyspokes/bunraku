@@ -36,14 +36,3 @@
   [{:keys [driver element] :as original}]
   (.click element)
   original)
-
-(defn test-script
-  []
-  (-> (chrome-driver)
-    (get-url "https://youtube.com")
-    (find-element-by-css "#masthead-search-term")
-    (send-text "vaporwave")
-    submit-form
-    (find-element-by-css "#results .item-section li:nth-child(2) .yt-uix-sessionlink")
-    click
-    page-title))
